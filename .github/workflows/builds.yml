@@ -47,6 +47,11 @@ jobs:
     - name: Build
       run: cmake --build build --config ${{ matrix.BUILD_TYPE }}
 
+    - name: Run tests
+      run: |
+        cd build
+        ctest --output-on-failure
+
   # Containerised build jobs.
   host-container:
 
